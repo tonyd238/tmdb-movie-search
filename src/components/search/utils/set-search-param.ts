@@ -8,7 +8,7 @@ export const setSearchParam = (
 	const url = new URL(window.location.href);
 	const params = url.searchParams;
 	if (value === '') {
-		params.delete(key); // очищаем пустое значение
+		params.delete(key);
 	} else {
 		params.set(key, value);
 	}

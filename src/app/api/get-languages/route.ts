@@ -1,13 +1,7 @@
 import { NextResponse } from 'next/server';
-import * as zod from 'zod';
+import { ResponseSchema } from './schema';
 
-export const ResponseSchema = zod.array(zod.string());
-export const ReturnSchema = zod.array(zod.object({
-	label: zod.string(),
-	value: zod.string()
-}));
-
-export async function GET(): Promise<NextResponse> {
+export async function GET(): Promise<Response> {
 	const API_KEY = process.env.API_KEY;
 	try {
 		const res = await fetch(`${process.env.TMDB_BASE_URL}/configuration/primary_translations?api_key=${API_KEY}`);
@@ -15,7 +9,6 @@ export async function GET(): Promise<NextResponse> {
 
 		const parsed = ResponseSchema.safeParse(jsonData);
 		if (!parsed.success) {
-			// Валидация не прошла
 			return NextResponse.json({ error: 'Invalid data format from TMDB' }, { status: 502 });
 		}
 

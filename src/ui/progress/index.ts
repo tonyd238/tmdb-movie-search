@@ -1,2 +1,2 @@
-export type {EmptyProps} from './types'
-export {Empty} from './view'
+export type {UiProgressProps} from './types'
+export {UiProgress} from './view'

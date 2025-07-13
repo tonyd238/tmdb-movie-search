@@ -16,5 +16,5 @@ export interface UiTypographyProps extends HTMLAttributes<HTMLDivElement>{
 	variant?: UiTypographyVariant;
 	children: ReactNode;
 	className?: string;
-	as?: keyof JSX.IntrinsicElements; // Позволяет изменить тег
+	as?: keyof JSX.IntrinsicElements;
 }
