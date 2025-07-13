@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+	--color-gray-200: #666666;
+	--color-gray-400: #333333;
+	--color-accent-purple: #764ba2;
+	--color-accent-blue: #667eea;
+	--animate-shimmer: shimmer 1.5s ease-in-out infinite;
+	--animate-progress: progressMove 2s ease-in-out infinite;
+
+	@keyframes shimmer {
+		0% {
+			background-position: -200% 0;
+		}
+		100% {
+			background-position: 200% 0;
+		}
+	}
+	@keyframes progressMove {
+		0% {
+			width: 0;
+		}
+		50% {
+			width: 70%;
+		}
+		100% {
+			width: 100%;
+		}
+	}
+}
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background: linear-gradient(135deg, var(--color-accent-blue) 0%, var(--color-accent-purple) 100%);
+	min-height: 100vh;
+}
