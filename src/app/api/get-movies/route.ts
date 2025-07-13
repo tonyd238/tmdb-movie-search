@@ -26,8 +26,8 @@ export async function GET(request: NextRequest): Promise<Response> {
 			}
 		});
 		const jsonData = await res.json();
-
 		const parsed = ResponseSchema.safeParse(jsonData);
+
 		if (!parsed.success) {
 			return NextResponse.json({ error: 'Invalid data format from TMDB' }, { status: 502 });
 		}

@@ -1,24 +1,25 @@
 import * as zod from 'zod';
 
+
 export const ResponseSchema = zod.object({
 	page: zod.number(),
 	total_pages: zod.number(),
 	total_results: zod.number(),
 	results: zod.array(zod.object({
 		adult: zod.boolean(),
-		backdrop_path: zod.string().nullable(),
-		genre_ids: zod.array(zod.number()),
+		backdrop_path: zod.string().nullable().optional(),
+		genre_ids: zod.array(zod.number()).optional().default([]),
 		id: zod.number(),
 		original_language: zod.string(),
 		original_title: zod.string(),
-		overview: zod.string(),
-		popularity: zod.number(),
-		poster_path: zod.string().nullable(),
-		release_date: zod.string(),
+		overview: zod.string().optional().default(''),
+		popularity: zod.number().optional().default(0),
+		poster_path: zod.string().nullable().optional(),
+		release_date: zod.string().optional().default(''),
 		title: zod.string(),
-		video: zod.boolean(),
-		vote_average: zod.number(),
-		vote_count: zod.number(),
+		video: zod.boolean().optional().default(false),
+		vote_average: zod.number().optional().default(0),
+		vote_count: zod.number().optional().default(0),
 	}))
 });
 

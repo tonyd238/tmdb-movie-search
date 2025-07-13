@@ -27,6 +27,7 @@ export const SearchInput: FC = () => {
 					method: 'POST',
 					body: JSON.stringify(body.data),
 				});
+				console.log('data =>', data);
 				setLoading(false);
 				updateModalContext({
 					data
