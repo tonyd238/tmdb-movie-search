@@ -4,7 +4,11 @@ import { ResponseSchema } from './schema';
 export async function GET(): Promise<Response> {
 	const API_KEY = process.env.API_KEY;
 	try {
-		const res = await fetch(`${process.env.TMDB_BASE_URL}/configuration/primary_translations?api_key=${API_KEY}`);
+		const res = await fetch(`${process.env.TMDB_BASE_URL}/configuration/primary_translations?api_key=${API_KEY}`, {
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+			}
+		});
 		const jsonData = await res.json();
 
 		const parsed = ResponseSchema.safeParse(jsonData);

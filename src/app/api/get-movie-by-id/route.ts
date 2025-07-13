@@ -11,6 +11,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 		}
 		const res = await fetch(`${process.env.TMDB_BASE_URL}/movie/${bodyParsed.data.movieId}`, {
 			headers: {
+				'Access-Control-Allow-Origin': '*',
 				accept: 'application/json',
 				Authorization: `Bearer ${TOKEN}`
 			}

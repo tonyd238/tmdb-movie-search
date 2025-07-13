@@ -20,6 +20,7 @@ export async function GET(request: NextRequest): Promise<Response> {
 	try {
 		const res = await fetch(`${process.env.TMDB_BASE_URL}/search/movie?${queryParams}`, {
 			headers: {
+				'Access-Control-Allow-Origin': '*',
 				accept: 'application/json',
 				Authorization: `Bearer ${TOKEN}`
 			}

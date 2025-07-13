@@ -6,6 +6,7 @@ export async function GET(): Promise<Response> {
 	try {
 		const res = await fetch(`${process.env.TMDB_BASE_URL}/genre/movie/list`, {
 			headers: {
+				'Access-Control-Allow-Origin': '*',
 				accept: 'application/json',
 				Authorization: `Bearer ${TOKEN}`
 			}
