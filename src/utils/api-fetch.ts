@@ -6,7 +6,13 @@ export async function apiFetch<T>(
 	options?: RequestInit,
 ): Promise<T> {
 
-	const res = await fetch(url, options);
+	const res = await fetch(url, {
+		...options,
+		headers: {
+			...options?.headers,
+			'Access-Control-Allow-Origin': '*',
+		}
+	});
 	const json = await res.json();
 	const parsed = schema.safeParse(json);
 	if (!parsed.success) {
