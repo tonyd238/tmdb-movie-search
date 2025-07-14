@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TMDB Movie Search
 
-## Getting Started
+## Опис проєкту
 
-First, run the development server:
+**TMDB Movie Search** — це веб-додаток для пошуку фільмів на основі API The Movie Database (TMDB). Застосунок дозволяє користувачам:
+
+- шукати фільми за ключовим словом;
+- переглядати детальну інформацію про фільм;
+- бачити жанри, дати виходу та описи;
+- використовувати розширену фільтрацію
+- працювати зі сторінками результатів (пагінація);
+
+Проєкт реалізований на базі **Next.js** з використанням **TypeScript**, **Headless UI**, **Tailwind CSS**, **Zod**.
+
+---
+
+## Функціональність
+
+-  Пошук фільмів по назві
+-  Розширена фільтрація
+-  Пагінація результатів
+-  Валідація та типізація API-відповідей через `zod`
+-  Адаптивний дизайн (Tailwind CSS)
+
+---
+
+## ⚙️ Інструкція з встановлення та запуску
+
+### 1. Клонування репозиторію
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/tonyd238/tmdb-movie-search.git
+cd tmdb-movie-search
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Встановлення залежностей
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Налаштування змінних середовища
 
-## Learn More
+В корні проекта лежить приклад ```.env``` файлу. Разом з цим завданням я надам актуальний ```.env``` для локального запуску
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Запуск в дев режимі
+```bash
+npm run dev
+```
+### Запуск в prod режимі
+``` bash
+npm run build
+npm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Використані технології
+Next.js, TypeScript, HeadlessUI, TailwindCSS, Zod
 
-## Deploy on Vercel
+## Архітектурні рішення
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Я вирішив робити всі запити на внутрішні API роути, це дозволяє зручно і безпечно підмішувати параметри у оригінальний запит. Кожен API роут має свою схему, через яку я валідую response
+- Звичайна компонентна структура, що можна винести в UI кіт лежить там, це здебільшого атомарні компоненти без будь-якої логіки, щось більш штучне лежить в папці components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Додаткові фічі
+1. Пагінація
+2. Типізація
+3. ContextAPI
